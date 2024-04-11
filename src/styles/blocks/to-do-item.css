@@ -1,0 +1,115 @@
+.todo-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 12px;
+    padding-left: 12px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    column-gap: 16px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 12px;
+    transition-duration: 0.3s;
+    transition-property: box-shadow;
+    transition-timing-function: ease;
+}
+
+.todo-item.complited {
+    box-shadow: rgba(0, 255, 0, 0.35) 0px 0px 12px;
+}
+
+.todo-item__checkbox {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+}
+
+.todo-item__checkbox:focus-visible~.todo-item__checkbox-switch {
+    border: 1px solid #000;
+}
+
+.todo-item__checkbox-switch {
+    display: block;
+    width: 40px;
+    height: 18px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background-color:rgba(240, 240, 240);
+    border-radius: 10px;
+    position: relative;
+    transition-property: background-color, border;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+.todo-item__checkbox-switch::before {
+    content: "";
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    border-radius: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2px;
+    background-color: black;
+    transition-property: transform, left, right;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+}
+
+.todo-item__checkbox:checked~.todo-item__checkbox-switch {
+    background-color:rgba(0, 255, 0, 0.35);
+}
+
+.todo-item__checkbox:checked~.todo-item__checkbox-switch::before {
+    left: calc(100% - 18px);
+}
+
+.todo-item__content-wrapper {
+    padding-top: 12px;
+}
+
+.todo-item__content {
+    margin-top: 0;
+    margin-bottom: 0;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.todo-item__content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.todo-item__content::-webkit-scrollbar-track {
+    background-color: rgb(202, 202, 202);
+}
+.todo-item__content::-webkit-scrollbar-thumb {
+    background-color: black;
+}
+.todo-item__button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 24px;
+    height: 24px;
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 0;
+    margin-left: auto;
+    border: 1px solid transparent;
+    background-color: transparent;
+    transition-property: border;
+    transition-duration: 0.3s;
+    cursor: pointer;
+    transition-timing-function: ease;
+}
+
+.todo-item__button:hover {
+    border: 1px solid #000;
+}
+
+.todo-item__button svg {
+    width: 100%;
+    height: 100%;
+}
